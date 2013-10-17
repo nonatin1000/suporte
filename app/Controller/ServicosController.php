@@ -1,0 +1,206 @@
+<?php
+App::uses('AppController', 'Controller');
+/**
+ * Servicos Controller
+ *
+ * @property Servico $Servico
+ * @property PaginatorComponent $Paginator
+ */
+class ServicosController extends AppController {
+
+/**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array('Paginator');
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		$this->Servico->recursive = 0;
+		$this->set('servicos', $this->Paginator->paginate());
+	}
+
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		if (!$this->Servico->exists($id)) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
+		$this->set('servico', $this->Servico->find('first', $options));
+	}
+
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function add() {
+		if ($this->request->is('post')) {
+			$this->Servico->create();
+			if ($this->Servico->save($this->request->data)) {
+				$this->Session->setFlash(__('The servico has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
+			}
+		}
+		$tipoServicos = $this->Servico->TipoServico->find('list');
+		$defeitos = $this->Servico->Defeito->find('list');
+		$chamados = $this->Servico->Chamado->find('list');
+		$this->set(compact('tipoServicos', 'defeitos', 'chamados'));
+	}
+
+/**
+ * edit method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function edit($id = null) {
+		if (!$this->Servico->exists($id)) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Servico->save($this->request->data)) {
+				$this->Session->setFlash(__('The servico has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
+			$this->request->data = $this->Servico->find('first', $options);
+		}
+		$tipoServicos = $this->Servico->TipoServico->find('list');
+		$defeitos = $this->Servico->Defeito->find('list');
+		$chamados = $this->Servico->Chamado->find('list');
+		$this->set(compact('tipoServicos', 'defeitos', 'chamados'));
+	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		$this->Servico->id = $id;
+		if (!$this->Servico->exists()) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Servico->delete()) {
+			$this->Session->setFlash(__('The servico has been deleted.'));
+		} else {
+			$this->Session->setFlash(__('The servico could not be deleted. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'index'));
+	}
+
+/**
+ * admin_index method
+ *
+ * @return void
+ */
+	public function admin_index() {
+		$this->Servico->recursive = 0;
+		$this->set('servicos', $this->Paginator->paginate());
+	}
+
+/**
+ * admin_view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_view($id = null) {
+		if (!$this->Servico->exists($id)) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
+		$this->set('servico', $this->Servico->find('first', $options));
+	}
+
+/**
+ * admin_add method
+ *
+ * @return void
+ */
+	public function admin_add() {
+		if ($this->request->is('post')) {
+			$this->Servico->create();
+			if ($this->Servico->save($this->request->data)) {
+				$this->Session->setFlash(__('The servico has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
+			}
+		}
+		$tipoServicos = $this->Servico->TipoServico->find('list');
+		$defeitos = $this->Servico->Defeito->find('list');
+		$chamados = $this->Servico->Chamado->find('list');
+		$this->set(compact('tipoServicos', 'defeitos', 'chamados'));
+	}
+
+/**
+ * admin_edit method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_edit($id = null) {
+		if (!$this->Servico->exists($id)) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Servico->save($this->request->data)) {
+				$this->Session->setFlash(__('The servico has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The servico could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Servico.' . $this->Servico->primaryKey => $id));
+			$this->request->data = $this->Servico->find('first', $options);
+		}
+		$tipoServicos = $this->Servico->TipoServico->find('list');
+		$defeitos = $this->Servico->Defeito->find('list');
+		$chamados = $this->Servico->Chamado->find('list');
+		$this->set(compact('tipoServicos', 'defeitos', 'chamados'));
+	}
+
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Servico->id = $id;
+		if (!$this->Servico->exists()) {
+			throw new NotFoundException(__('Invalid servico'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Servico->delete()) {
+			$this->Session->setFlash(__('The servico has been deleted.'));
+		} else {
+			$this->Session->setFlash(__('The servico could not be deleted. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'index'));
+	}}
