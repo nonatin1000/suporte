@@ -5,7 +5,9 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('descricao'); ?></th>
 			<th><?php echo $this->Paginator->sort('chamado_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($historicoChamados as $historicoChamado): ?>
@@ -13,11 +15,13 @@
 		<td><?php echo h($historicoChamado['HistoricoChamado']['id']); ?>&nbsp;</td>
 		<td><?php echo h($historicoChamado['HistoricoChamado']['descricao']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($historicoChamado['Chamado']['descricao'], array('controller' => 'chamados', 'action' => 'view', $historicoChamado['Chamado']['id'])); ?>
+			<?php echo $this->Html->link($historicoChamado['Chamado']['id'], array('controller' => 'chamados', 'action' => 'view', $historicoChamado['Chamado']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($historicoChamado['Usuario']['nome'], array('controller' => 'usuarios', 'action' => 'view', $historicoChamado['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($historicoChamado['User']['id'], array('controller' => 'users', 'action' => 'view', $historicoChamado['User']['id'])); ?>
 		</td>
+		<td><?php echo h($historicoChamado['HistoricoChamado']['created']); ?>&nbsp;</td>
+		<td><?php echo h($historicoChamado['HistoricoChamado']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $historicoChamado['HistoricoChamado']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $historicoChamado['HistoricoChamado']['id'])); ?>
@@ -46,7 +50,7 @@
 		<li><?php echo $this->Html->link(__('New Historico Chamado'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

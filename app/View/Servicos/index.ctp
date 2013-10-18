@@ -8,6 +8,8 @@
 			<th><?php echo $this->Paginator->sort('defeito_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('chamado_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('observacao'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($servicos as $servico): ?>
@@ -15,15 +17,17 @@
 		<td><?php echo h($servico['Servico']['id']); ?>&nbsp;</td>
 		<td><?php echo h($servico['Servico']['descricao']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($servico['TipoServico']['descricao'], array('controller' => 'tipo_servicos', 'action' => 'view', $servico['TipoServico']['id'])); ?>
+			<?php echo $this->Html->link($servico['TipoServico']['id'], array('controller' => 'tipo_servicos', 'action' => 'view', $servico['TipoServico']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($servico['Defeito']['nome'], array('controller' => 'defeitos', 'action' => 'view', $servico['Defeito']['id'])); ?>
+			<?php echo $this->Html->link($servico['Defeito']['id'], array('controller' => 'defeitos', 'action' => 'view', $servico['Defeito']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($servico['Chamado']['descricao'], array('controller' => 'chamados', 'action' => 'view', $servico['Chamado']['id'])); ?>
+			<?php echo $this->Html->link($servico['Chamado']['id'], array('controller' => 'chamados', 'action' => 'view', $servico['Chamado']['id'])); ?>
 		</td>
 		<td><?php echo h($servico['Servico']['observacao']); ?>&nbsp;</td>
+		<td><?php echo h($servico['Servico']['created']); ?>&nbsp;</td>
+		<td><?php echo h($servico['Servico']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $servico['Servico']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $servico['Servico']['id'])); ?>

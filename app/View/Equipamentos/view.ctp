@@ -23,7 +23,17 @@
 		</dd>
 		<dt><?php echo __('Marca'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($equipamento['Marca']['nome'], array('controller' => 'marcas', 'action' => 'view', $equipamento['Marca']['id'])); ?>
+			<?php echo $this->Html->link($equipamento['Marca']['id'], array('controller' => 'marcas', 'action' => 'view', $equipamento['Marca']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($equipamento['Equipamento']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($equipamento['Equipamento']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

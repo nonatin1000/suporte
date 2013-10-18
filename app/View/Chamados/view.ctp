@@ -13,7 +13,7 @@
 		</dd>
 		<dt><?php echo __('Funcionario'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($chamado['Funcionario']['nome'], array('controller' => 'funcionarios', 'action' => 'view', $chamado['Funcionario']['id'])); ?>
+			<?php echo $this->Html->link($chamado['Funcionario']['id'], array('controller' => 'funcionarios', 'action' => 'view', $chamado['Funcionario']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Data Abertura'); ?></dt>
@@ -33,7 +33,17 @@
 		</dd>
 		<dt><?php echo __('Prioridade'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($chamado['Prioridade']['descricao'], array('controller' => 'prioridades', 'action' => 'view', $chamado['Prioridade']['id'])); ?>
+			<?php echo $this->Html->link($chamado['Prioridade']['id'], array('controller' => 'prioridades', 'action' => 'view', $chamado['Prioridade']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($chamado['Chamado']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($chamado['Chamado']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -64,6 +74,8 @@
 		<th><?php echo __('Defeito Id'); ?></th>
 		<th><?php echo __('Chamado Id'); ?></th>
 		<th><?php echo __('Observacao'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($chamado['Servico'] as $servico): ?>
@@ -74,6 +86,8 @@
 			<td><?php echo $servico['defeito_id']; ?></td>
 			<td><?php echo $servico['chamado_id']; ?></td>
 			<td><?php echo $servico['observacao']; ?></td>
+			<td><?php echo $servico['created']; ?></td>
+			<td><?php echo $servico['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'servicos', 'action' => 'view', $servico['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'servicos', 'action' => 'edit', $servico['id'])); ?>

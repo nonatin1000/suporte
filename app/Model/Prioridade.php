@@ -3,22 +3,9 @@ App::uses('AppModel', 'Model');
 /**
  * Prioridade Model
  *
+ * @property Chamado $Chamado
  */
 class Prioridade extends AppModel {
-
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'prioridade';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'descricao';
 
 /**
  * Validation rules
@@ -35,14 +22,30 @@ class Prioridade extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength', 50),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 		),
 	);
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Chamado' => array(
+			'className' => 'Chamado',
+			'foreignKey' => 'prioridade_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 }

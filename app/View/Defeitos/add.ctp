@@ -13,5 +13,7 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Defeitos'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Servicos'), array('controller' => 'servicos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Servico'), array('controller' => 'servicos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

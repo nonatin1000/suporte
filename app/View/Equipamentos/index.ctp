@@ -7,6 +7,8 @@
 			<th><?php echo $this->Paginator->sort('numero_serie'); ?></th>
 			<th><?php echo $this->Paginator->sort('tombamento'); ?></th>
 			<th><?php echo $this->Paginator->sort('marca_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($equipamentos as $equipamento): ?>
@@ -16,8 +18,10 @@
 		<td><?php echo h($equipamento['Equipamento']['numero_serie']); ?>&nbsp;</td>
 		<td><?php echo h($equipamento['Equipamento']['tombamento']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($equipamento['Marca']['nome'], array('controller' => 'marcas', 'action' => 'view', $equipamento['Marca']['id'])); ?>
+			<?php echo $this->Html->link($equipamento['Marca']['id'], array('controller' => 'marcas', 'action' => 'view', $equipamento['Marca']['id'])); ?>
 		</td>
+		<td><?php echo h($equipamento['Equipamento']['created']); ?>&nbsp;</td>
+		<td><?php echo h($equipamento['Equipamento']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $equipamento['Equipamento']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $equipamento['Equipamento']['id'])); ?>

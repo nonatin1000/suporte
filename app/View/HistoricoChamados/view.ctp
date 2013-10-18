@@ -13,12 +13,22 @@
 		</dd>
 		<dt><?php echo __('Chamado'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($historicoChamado['Chamado']['descricao'], array('controller' => 'chamados', 'action' => 'view', $historicoChamado['Chamado']['id'])); ?>
+			<?php echo $this->Html->link($historicoChamado['Chamado']['id'], array('controller' => 'chamados', 'action' => 'view', $historicoChamado['Chamado']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Usuario'); ?></dt>
+		<dt><?php echo __('User'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($historicoChamado['Usuario']['nome'], array('controller' => 'usuarios', 'action' => 'view', $historicoChamado['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($historicoChamado['User']['id'], array('controller' => 'users', 'action' => 'view', $historicoChamado['User']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($historicoChamado['HistoricoChamado']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($historicoChamado['HistoricoChamado']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -32,7 +42,7 @@
 		<li><?php echo $this->Html->link(__('New Historico Chamado'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

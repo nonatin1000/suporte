@@ -8,7 +8,9 @@
 			<th><?php echo $this->Paginator->sort('celular'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th><?php echo $this->Paginator->sort('setor_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('usuario_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($funcionarios as $funcionario): ?>
@@ -19,11 +21,13 @@
 		<td><?php echo h($funcionario['Funcionario']['celular']); ?>&nbsp;</td>
 		<td><?php echo h($funcionario['Funcionario']['email']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($funcionario['Setor']['nome'], array('controller' => 'setors', 'action' => 'view', $funcionario['Setor']['id'])); ?>
+			<?php echo $this->Html->link($funcionario['Setor']['id'], array('controller' => 'setors', 'action' => 'view', $funcionario['Setor']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($funcionario['Usuario']['nome'], array('controller' => 'usuarios', 'action' => 'view', $funcionario['Usuario']['id'])); ?>
+			<?php echo $this->Html->link($funcionario['User']['id'], array('controller' => 'users', 'action' => 'view', $funcionario['User']['id'])); ?>
 		</td>
+		<td><?php echo h($funcionario['Funcionario']['created']); ?>&nbsp;</td>
+		<td><?php echo h($funcionario['Funcionario']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $funcionario['Funcionario']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $funcionario['Funcionario']['id'])); ?>
@@ -52,7 +56,9 @@
 		<li><?php echo $this->Html->link(__('New Funcionario'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Setors'), array('controller' => 'setors', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Setor'), array('controller' => 'setors', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -4,23 +4,9 @@ App::uses('AppModel', 'Model');
  * HistoricoChamado Model
  *
  * @property Chamado $Chamado
- * @property Usuario $Usuario
+ * @property User $User
  */
 class HistoricoChamado extends AppModel {
-
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'historico_chamado';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'descricao';
 
 /**
  * Validation rules
@@ -39,8 +25,8 @@ class HistoricoChamado extends AppModel {
 			),
 		),
 		'chamado_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -48,9 +34,9 @@ class HistoricoChamado extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'usuario_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -75,9 +61,9 @@ class HistoricoChamado extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'usuario_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

@@ -4,12 +4,16 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($defeitos as $defeito): ?>
 	<tr>
 		<td><?php echo h($defeito['Defeito']['id']); ?>&nbsp;</td>
 		<td><?php echo h($defeito['Defeito']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($defeito['Defeito']['created']); ?>&nbsp;</td>
+		<td><?php echo h($defeito['Defeito']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $defeito['Defeito']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $defeito['Defeito']['id'])); ?>
@@ -36,5 +40,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Defeito'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Servicos'), array('controller' => 'servicos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Servico'), array('controller' => 'servicos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

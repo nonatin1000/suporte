@@ -4,12 +4,16 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($setors as $setor): ?>
 	<tr>
 		<td><?php echo h($setor['Setor']['id']); ?>&nbsp;</td>
 		<td><?php echo h($setor['Setor']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($setor['Setor']['created']); ?>&nbsp;</td>
+		<td><?php echo h($setor['Setor']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $setor['Setor']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $setor['Setor']['id'])); ?>

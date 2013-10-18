@@ -4,12 +4,16 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('descricao'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($prioridades as $prioridade): ?>
 	<tr>
 		<td><?php echo h($prioridade['Prioridade']['id']); ?>&nbsp;</td>
 		<td><?php echo h($prioridade['Prioridade']['descricao']); ?>&nbsp;</td>
+		<td><?php echo h($prioridade['Prioridade']['created']); ?>&nbsp;</td>
+		<td><?php echo h($prioridade['Prioridade']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $prioridade['Prioridade']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $prioridade['Prioridade']['id'])); ?>
@@ -36,5 +40,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Prioridade'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

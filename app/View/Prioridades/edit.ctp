@@ -15,5 +15,7 @@
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Prioridade.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Prioridade.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Prioridades'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

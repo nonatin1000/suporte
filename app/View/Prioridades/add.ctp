@@ -13,5 +13,7 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Prioridades'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Chamados'), array('controller' => 'chamados', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Chamado'), array('controller' => 'chamados', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

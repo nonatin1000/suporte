@@ -8,20 +8,6 @@ App::uses('AppModel', 'Model');
 class Equipamento extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'equipamento';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'nome';
-
-/**
  * Validation rules
  *
  * @var array
@@ -30,14 +16,6 @@ class Equipamento extends AppModel {
 		'nome' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'O nome do equipamento é obrigatório',
-				//'allowEmpty' => false,
-				'required' => true,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-                        'maxlength' => array(
-				'rule' => array('maxlength', 50),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -45,30 +23,22 @@ class Equipamento extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-                'numero_serie' => array(
-                        'notempty' => array(
-                            'rule' => array('notempty'),
-                            'message' => 'O número de série do equipamento é obrigatório',
-                            //'allowEmpty' => false,
-                            'required' => true,
-                            //'last' => false, // Stop validation after this rule
-                            //'on' => 'create', // Limit validation to 'create' or 'update' operations
-                        ),
-                        'maxlength' => array(
-				'rule' => array('maxlength', 50),
+		'numero_serie' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-                ),
+		),
 		'marca_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Escolha a marca do equipamento',
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
-				'required' => true,
+				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),

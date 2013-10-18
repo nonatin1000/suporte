@@ -4,23 +4,10 @@ App::uses('AppModel', 'Model');
  * Funcionario Model
  *
  * @property Setor $Setor
- * @property Usuario $Usuario
+ * @property User $User
+ * @property Chamado $Chamado
  */
 class Funcionario extends AppModel {
-
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'funcionario';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'nome';
 
 /**
  * Validation rules
@@ -29,14 +16,6 @@ class Funcionario extends AppModel {
  */
 	public $validate = array(
 		'nome' => array(
-			'maxlength' => array(
-				'rule' => array('maxlength', 50),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -47,14 +26,6 @@ class Funcionario extends AppModel {
 			),
 		),
 		'matricula' => array(
-			'maxlength' => array(
-				'rule' => array('maxlength', 30),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -64,16 +35,6 @@ class Funcionario extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		/*'celular' => array(
-			'phone' => array(
-				'rule' => array('phone'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),*/
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
@@ -83,16 +44,20 @@ class Funcionario extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'maxlength' => array(
-				'rule' => array('maxlength', 100),
+		),
+		'setor_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'notempty' => array(
-				'rule' => array('notempty'),
+		),
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -117,12 +82,34 @@ class Funcionario extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'usuario_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Chamado' => array(
+			'className' => 'Chamado',
+			'foreignKey' => 'funcionario_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 }

@@ -13,22 +13,32 @@
 		</dd>
 		<dt><?php echo __('Tipo Servico'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($servico['TipoServico']['descricao'], array('controller' => 'tipo_servicos', 'action' => 'view', $servico['TipoServico']['id'])); ?>
+			<?php echo $this->Html->link($servico['TipoServico']['id'], array('controller' => 'tipo_servicos', 'action' => 'view', $servico['TipoServico']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Defeito'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($servico['Defeito']['nome'], array('controller' => 'defeitos', 'action' => 'view', $servico['Defeito']['id'])); ?>
+			<?php echo $this->Html->link($servico['Defeito']['id'], array('controller' => 'defeitos', 'action' => 'view', $servico['Defeito']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Chamado'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($servico['Chamado']['descricao'], array('controller' => 'chamados', 'action' => 'view', $servico['Chamado']['id'])); ?>
+			<?php echo $this->Html->link($servico['Chamado']['id'], array('controller' => 'chamados', 'action' => 'view', $servico['Chamado']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Observacao'); ?></dt>
 		<dd>
 			<?php echo h($servico['Servico']['observacao']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($servico['Servico']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($servico['Servico']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

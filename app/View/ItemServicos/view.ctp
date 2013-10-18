@@ -8,12 +8,22 @@
 		</dd>
 		<dt><?php echo __('Peca'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($itemServico['Peca']['nome'], array('controller' => 'pecas', 'action' => 'view', $itemServico['Peca']['id'])); ?>
+			<?php echo $this->Html->link($itemServico['Peca']['id'], array('controller' => 'pecas', 'action' => 'view', $itemServico['Peca']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Servico'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($itemServico['Servico']['descricao'], array('controller' => 'servicos', 'action' => 'view', $itemServico['Servico']['id'])); ?>
+			<?php echo $this->Html->link($itemServico['Servico']['id'], array('controller' => 'servicos', 'action' => 'view', $itemServico['Servico']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($itemServico['ItemServico']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($itemServico['ItemServico']['modified']); ?>
 			&nbsp;
 		</dd>
 	</dl>

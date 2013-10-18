@@ -9,28 +9,14 @@ App::uses('AppModel', 'Model');
 class ItemServico extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'item_servico';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'id';
-
-/**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
 		'peca_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -39,8 +25,8 @@ class ItemServico extends AppModel {
 			),
 		),
 		'servico_id' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

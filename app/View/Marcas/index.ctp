@@ -4,12 +4,16 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($marcas as $marca): ?>
 	<tr>
 		<td><?php echo h($marca['Marca']['id']); ?>&nbsp;</td>
 		<td><?php echo h($marca['Marca']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($marca['Marca']['created']); ?>&nbsp;</td>
+		<td><?php echo h($marca['Marca']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $marca['Marca']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $marca['Marca']['id'])); ?>

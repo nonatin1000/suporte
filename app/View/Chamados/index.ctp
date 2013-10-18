@@ -9,6 +9,8 @@
 			<th><?php echo $this->Paginator->sort('data_fechamento'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('prioridade_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($chamados as $chamado): ?>
@@ -16,14 +18,16 @@
 		<td><?php echo h($chamado['Chamado']['id']); ?>&nbsp;</td>
 		<td><?php echo h($chamado['Chamado']['descricao']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($chamado['Funcionario']['nome'], array('controller' => 'funcionarios', 'action' => 'view', $chamado['Funcionario']['id'])); ?>
+			<?php echo $this->Html->link($chamado['Funcionario']['id'], array('controller' => 'funcionarios', 'action' => 'view', $chamado['Funcionario']['id'])); ?>
 		</td>
 		<td><?php echo h($chamado['Chamado']['data_abertura']); ?>&nbsp;</td>
 		<td><?php echo h($chamado['Chamado']['data_fechamento']); ?>&nbsp;</td>
 		<td><?php echo h($chamado['Chamado']['status']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($chamado['Prioridade']['descricao'], array('controller' => 'prioridades', 'action' => 'view', $chamado['Prioridade']['id'])); ?>
+			<?php echo $this->Html->link($chamado['Prioridade']['id'], array('controller' => 'prioridades', 'action' => 'view', $chamado['Prioridade']['id'])); ?>
 		</td>
+		<td><?php echo h($chamado['Chamado']['created']); ?>&nbsp;</td>
+		<td><?php echo h($chamado['Chamado']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $chamado['Chamado']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $chamado['Chamado']['id'])); ?>

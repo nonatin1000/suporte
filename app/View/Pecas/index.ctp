@@ -4,12 +4,16 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($pecas as $peca): ?>
 	<tr>
 		<td><?php echo h($peca['Peca']['id']); ?>&nbsp;</td>
 		<td><?php echo h($peca['Peca']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($peca['Peca']['created']); ?>&nbsp;</td>
+		<td><?php echo h($peca['Peca']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $peca['Peca']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $peca['Peca']['id'])); ?>
@@ -36,5 +40,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Peca'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Item Servicos'), array('controller' => 'item_servicos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Item Servico'), array('controller' => 'item_servicos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

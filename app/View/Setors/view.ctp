@@ -11,6 +11,16 @@
 			<?php echo h($setor['Setor']['nome']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($setor['Setor']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($setor['Setor']['modified']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -35,7 +45,9 @@
 		<th><?php echo __('Celular'); ?></th>
 		<th><?php echo __('Email'); ?></th>
 		<th><?php echo __('Setor Id'); ?></th>
-		<th><?php echo __('Usuario Id'); ?></th>
+		<th><?php echo __('User Id'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($setor['Funcionario'] as $funcionario): ?>
@@ -46,7 +58,9 @@
 			<td><?php echo $funcionario['celular']; ?></td>
 			<td><?php echo $funcionario['email']; ?></td>
 			<td><?php echo $funcionario['setor_id']; ?></td>
-			<td><?php echo $funcionario['usuario_id']; ?></td>
+			<td><?php echo $funcionario['user_id']; ?></td>
+			<td><?php echo $funcionario['created']; ?></td>
+			<td><?php echo $funcionario['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'funcionarios', 'action' => 'view', $funcionario['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'funcionarios', 'action' => 'edit', $funcionario['id'])); ?>

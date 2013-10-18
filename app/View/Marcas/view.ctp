@@ -11,6 +11,16 @@
 			<?php echo h($marca['Marca']['nome']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($marca['Marca']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($marca['Marca']['modified']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -34,6 +44,8 @@
 		<th><?php echo __('Numero Serie'); ?></th>
 		<th><?php echo __('Tombamento'); ?></th>
 		<th><?php echo __('Marca Id'); ?></th>
+		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($marca['Equipamento'] as $equipamento): ?>
@@ -43,6 +55,8 @@
 			<td><?php echo $equipamento['numero_serie']; ?></td>
 			<td><?php echo $equipamento['tombamento']; ?></td>
 			<td><?php echo $equipamento['marca_id']; ?></td>
+			<td><?php echo $equipamento['created']; ?></td>
+			<td><?php echo $equipamento['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'equipamentos', 'action' => 'view', $equipamento['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'equipamentos', 'action' => 'edit', $equipamento['id'])); ?>
